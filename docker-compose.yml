@@ -1,0 +1,42 @@
+services:
+    backend:
+        image: darsov2/api
+        container_name: backend
+        build:
+            context: ./backend/api-gateway
+        ports:
+            - "8080:8080"
+        depends_on:
+            - feedback
+            - mailing
+            - main-app
+    feedback:
+        image: darsov2/feedback
+        container_name: feedback
+        build:
+            context: ./backend/feedback-service
+        ports:
+            - "8081:8081"
+    mailing:
+        image: darsov2/mailing
+        container_name: mailing
+        build:
+            context: ./backend/mailing-service
+        ports:
+            - "8082:8082"
+    main-app:
+        image: darsov2/main-app
+        container_name: main-app
+        build:
+            context: ./backend/main-app
+        ports:
+            - "8083:8083"
+    frontend:
+        image: darsov2/trip2mk-front
+        container_name: frontend
+        build:
+            context: ./frontend
+        ports:
+            - "80:3000"
+        depends_on: 
+            - backend
