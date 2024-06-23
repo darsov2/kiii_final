@@ -10,6 +10,7 @@ services:
             - feedback
             - mailing
             - main-app
+            - postgres
     feedback:
         image: darsov2/feedback
         container_name: feedback
@@ -17,6 +18,8 @@ services:
             context: ./backend/feedback-service
         ports:
             - "8081:8081"
+        depends_on:
+            - postgres
     mailing:
         image: darsov2/mailing
         container_name: mailing
@@ -31,6 +34,8 @@ services:
             context: ./backend/main-app
         ports:
             - "8083:8083"
+        depends_on:
+            - postgres
     frontend:
         image: darsov2/trip2mk-front
         container_name: frontend
@@ -40,3 +45,17 @@ services:
             - "80:3000"
         depends_on: 
             - backend
+    postgres:
+        image: postgres:latest
+        container_name: postgres
+        environment:
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: admin
+            POSTGRES_DB: trip2mk
+        ports:
+            - "5432:5432"
+        volumes:
+            - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
