@@ -20,13 +20,13 @@ public class ApiGatewayApplication {
         return builder.routes()
                 .route("feedbacks-service-route", r -> r
                         .path("/api/feedback/**")
-                        .uri("http://localhost:8081"))
+                        .uri("http://feedback:8081"))
                 .route("mailing-service-route", r -> r
                         .path("/api/email/**")
-                        .uri("http://localhost:8082"))
+                        .uri("http://mailing:8082"))
                 .route("main-app-routes", r -> r
                         .path("/**")
-                        .uri("http://localhost:8083"))
+                        .uri("http://main-app:8083"))
                 .build();
     }
 
