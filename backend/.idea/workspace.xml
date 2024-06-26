@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="43e5c86b-fdb0-4e56-b9c5-04933d30266e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/mk/ukim/finki/apigateway/ApiGatewayApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/mk/ukim/finki/apigateway/ApiGatewayApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedback-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/feedback-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +52,8 @@
       <updated>1706461853362</updated>
       <workItem from="1706461855310" duration="41000" />
       <workItem from="1719411569180" duration="2320000" />
-      <workItem from="1719430565174" duration="2314000" />
+      <workItem from="1719430565174" duration="3233000" />
+      <workItem from="1719434847140" duration="52000" />
     </task>
     <servers />
   </component>

@@ -20,13 +20,13 @@ public class ApiGatewayApplication {
         return builder.routes()
                 .route("feedbacks-service-route", r -> r
                         .path("/api/feedback/**")
-                        .uri("http://feedback-service:8081"))
+                        .uri("http://feedback:8081"))
                 .route("mailing-service-route", r -> r
                         .path("/api/email/**")
-                        .uri("http://mailing-service:8082"))
+                        .uri("http://mailing:8082"))
                 .route("main-app-routes", r -> r
                         .path("/api/**")
-                        .uri("http://main-app-service:8083"))
+                        .uri("http://main-app:8083"))
                 .build();
     }
 
@@ -39,7 +39,7 @@ public class ApiGatewayApplication {
         @Override
         public void addCorsMappings(CorsRegistry registry) {
             registry.addMapping("/**")
-                    .allowedOrigins("http://frontend.com")
+                    .allowedOrigins("http://localhost:3000")
                     .allowedMethods("GET", "POST", "PUT", "DELETE");
         }
     }
