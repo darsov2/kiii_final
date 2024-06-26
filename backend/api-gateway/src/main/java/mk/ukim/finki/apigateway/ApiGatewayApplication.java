@@ -25,7 +25,7 @@ public class ApiGatewayApplication {
                         .path("/api/email/**")
                         .uri("http://mailing:8082"))
                 .route("main-app-routes", r -> r
-                        .path("/**")
+                        .path("/api/**")
                         .uri("http://main-app-service:8083"))
                 .build();
     }
