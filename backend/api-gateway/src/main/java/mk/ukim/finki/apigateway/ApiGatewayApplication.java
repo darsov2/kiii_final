@@ -20,10 +20,10 @@ public class ApiGatewayApplication {
         return builder.routes()
                 .route("feedbacks-service-route", r -> r
                         .path("/api/feedback/**")
-                        .uri("http://feedback:8081"))
+                        .uri("http://feedback-service:8081"))
                 .route("mailing-service-route", r -> r
                         .path("/api/email/**")
-                        .uri("http://mailing:8082"))
+                        .uri("http://mailing-service:8082"))
                 .route("main-app-routes", r -> r
                         .path("/api/**")
                         .uri("http://main-app-service:8083"))
