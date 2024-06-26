@@ -49,13 +49,12 @@ services:
         image: postgres:latest
         container_name: postgres
         environment:
+            POSTGRES_DB: trip2mk
             POSTGRES_USER: postgres
             POSTGRES_PASSWORD: admin
-            POSTGRES_DB: trip2mk
         ports:
             - "5432:5432"
         volumes:
-            - postgres_data:/var/lib/postgresql/data
-
+            - postgres_data:/var/lib/postgresql/data1
 volumes:
   postgres_data:
