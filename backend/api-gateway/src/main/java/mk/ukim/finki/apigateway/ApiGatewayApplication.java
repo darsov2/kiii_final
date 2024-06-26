@@ -26,7 +26,7 @@ public class ApiGatewayApplication {
                         .uri("http://mailing:8082"))
                 .route("main-app-routes", r -> r
                         .path("/api/**")
-                        .uri("http://main-app-service:8083"))
+                        .uri("http://main-app:8083"))
                 .build();
     }
 
@@ -39,7 +39,7 @@ public class ApiGatewayApplication {
         @Override
         public void addCorsMappings(CorsRegistry registry) {
             registry.addMapping("/**")
-                    .allowedOrigins("http://frontend.com")
+                    .allowedOrigins("http://localhost:3000")
                     .allowedMethods("GET", "POST", "PUT", "DELETE");
         }
     }
