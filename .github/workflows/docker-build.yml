@@ -37,7 +37,7 @@ jobs:
       with:
         context: ./backend/api-gateway
         push: true
-        tags: darsov2/api:latest
+        tags: darsov2/api:kube
 
     - name: Build and push feedback image
       uses: docker/build-push-action@v2
@@ -51,18 +51,18 @@ jobs:
       with:
         context: ./backend/mailing-service
         push: true
-        tags: darsov2/mailing:latest
+        tags: darsov2/mailing:kube
 
     - name: Build and push main-app image
       uses: docker/build-push-action@v2
       with:
         context: ./backend/main-app
         push: true
-        tags: darsov2/main-app:latest
+        tags: darsov2/main-app:kube
 
     - name: Build and push frontend image
       uses: docker/build-push-action@v2
       with:
         context: ./frontend
         push: true
-        tags: darsov2/trip2mk-front:latest
+        tags: darsov2/trip2mk-front:kube
