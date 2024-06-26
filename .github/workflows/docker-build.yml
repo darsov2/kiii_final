@@ -44,7 +44,7 @@ jobs:
       with:
         context: ./backend/feedback-service
         push: true
-        tags: darsov2/feedback:latest
+        tags: darsov2/feedback:kube
 
     - name: Build and push mailing image
       uses: docker/build-push-action@v2
