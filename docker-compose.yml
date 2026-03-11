@@ -1,9 +1,7 @@
 services:
     backend:
-        image: darsov2/api
+        image: ghcr.io/${GHCR_OWNER}/trip2mk-api-gateway:${IMAGE_TAG:-latest}
         container_name: backend
-        build:
-            context: ./backend/api-gateway
         ports:
             - "8080:8080"
         depends_on:
@@ -12,38 +10,30 @@ services:
             - main-app
             - postgres
     feedback:
-        image: darsov2/feedback
+        image: ghcr.io/${GHCR_OWNER}/trip2mk-feedback:${IMAGE_TAG:-latest}
         container_name: feedback
-        build:
-            context: ./backend/feedback-service
         ports:
             - "8081:8081"
         depends_on:
             - postgres
     mailing:
-        image: darsov2/mailing
+        image: ghcr.io/${GHCR_OWNER}/trip2mk-mailing:${IMAGE_TAG:-latest}
         container_name: mailing
-        build:
-            context: ./backend/mailing-service
         ports:
             - "8082:8082"
     main-app:
-        image: darsov2/main-app
+        image: ghcr.io/${GHCR_OWNER}/trip2mk-main-app:${IMAGE_TAG:-latest}
         container_name: main-app
-        build:
-            context: ./backend/main-app
         ports:
             - "8083:8083"
         depends_on:
             - postgres
     frontend:
-        image: darsov2/trip2mk-front
+        image: ghcr.io/${GHCR_OWNER}/trip2mk-frontend:${IMAGE_TAG:-latest}
         container_name: frontend
-        build:
-            context: ./frontend
         ports:
             - "3000:3000"
-        depends_on: 
+        depends_on:
             - backend
     postgres:
         image: postgres:latest

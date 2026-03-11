@@ -1,0 +1,321 @@
+name: CI/CD - Development
+
+on:
+  push:
+    branches:
+      - develop
+  pull_request:
+    branches:
+      - develop
+
+jobs:
+  # ── TEST JOBS (run in parallel) ───────────────────────────────────────────────
+
+  test-api-gateway:
+    name: Test api-gateway
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'corretto'
+          cache: maven
+
+      - name: Run Maven tests
+        working-directory: backend/api-gateway
+        run: mvn test
+
+  test-feedback-service:
+    name: Test feedback-service
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'corretto'
+          cache: maven
+
+      - name: Run Maven tests
+        working-directory: backend/feedback-service
+        run: mvn test
+
+  test-mailing-service:
+    name: Test mailing-service
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'corretto'
+          cache: maven
+
+      - name: Run Maven tests
+        working-directory: backend/mailing-service
+        run: mvn test
+
+  test-main-app:
+    name: Test main-app
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'corretto'
+          cache: maven
+
+      - name: Run Maven tests
+        working-directory: backend/main-app
+        run: mvn test
+
+  test-frontend:
+    name: Test frontend
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install dependencies
+        working-directory: frontend
+        run: npm ci
+
+      - name: Run tests
+        working-directory: frontend
+        run: npm test -- --watchAll=false
+        env:
+          CI: true
+
+  # ── BUILD & PUSH JOBS (parallel, push-only, after ALL tests pass) ─────────────
+
+  build-push-api-gateway:
+    name: Build & Push api-gateway
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+    needs:
+      - test-api-gateway
+      - test-feedback-service
+      - test-mailing-service
+      - test-main-app
+      - test-frontend
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build and push api-gateway
+        uses: docker/build-push-action@v5
+        with:
+          context: ./backend/api-gateway
+          push: true
+          tags: ghcr.io/${{ github.repository_owner }}/trip2mk-api-gateway:develop
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  build-push-feedback:
+    name: Build & Push feedback-service
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+    needs:
+      - test-api-gateway
+      - test-feedback-service
+      - test-mailing-service
+      - test-main-app
+      - test-frontend
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build and push feedback-service
+        uses: docker/build-push-action@v5
+        with:
+          context: ./backend/feedback-service
+          push: true
+          tags: ghcr.io/${{ github.repository_owner }}/trip2mk-feedback:develop
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  build-push-mailing:
+    name: Build & Push mailing-service
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+    needs:
+      - test-api-gateway
+      - test-feedback-service
+      - test-mailing-service
+      - test-main-app
+      - test-frontend
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build and push mailing-service
+        uses: docker/build-push-action@v5
+        with:
+          context: ./backend/mailing-service
+          push: true
+          tags: ghcr.io/${{ github.repository_owner }}/trip2mk-mailing:develop
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  build-push-main-app:
+    name: Build & Push main-app
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+    needs:
+      - test-api-gateway
+      - test-feedback-service
+      - test-mailing-service
+      - test-main-app
+      - test-frontend
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build and push main-app
+        uses: docker/build-push-action@v5
+        with:
+          context: ./backend/main-app
+          push: true
+          tags: ghcr.io/${{ github.repository_owner }}/trip2mk-main-app:develop
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  build-push-frontend:
+    name: Build & Push frontend
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+    needs:
+      - test-api-gateway
+      - test-feedback-service
+      - test-mailing-service
+      - test-main-app
+      - test-frontend
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build and push frontend
+        uses: docker/build-push-action@v5
+        with:
+          context: ./frontend
+          push: true
+          tags: ghcr.io/${{ github.repository_owner }}/trip2mk-frontend:develop
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  # ── DEPLOY JOB (runs on local self-hosted runner) ────────────────────────────
+
+  deploy-dev:
+    name: Deploy to Development
+    runs-on: self-hosted
+    if: github.event_name == 'push'
+    needs:
+      - build-push-api-gateway
+      - build-push-feedback
+      - build-push-mailing
+      - build-push-main-app
+      - build-push-frontend
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Pull latest images and restart services
+        env:
+          GHCR_OWNER: ${{ github.repository_owner }}
+          IMAGE_TAG: develop
+        run: |
+          docker compose pull
+          docker compose up -d

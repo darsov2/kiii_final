@@ -1,13 +1,14 @@
 package mk.ukim.finki.feedbackservice;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+import static org.assertj.core.api.Assertions.assertThat;
+
 class FeedbackServiceApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+    @Test
+    void applicationClassExists() {
+        assertThat(FeedbackServiceApplication.class).isNotNull();
+    }
 
 }

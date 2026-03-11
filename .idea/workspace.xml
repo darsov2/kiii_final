@@ -1,7 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="8859d96e-ae82-4734-84d1-022e1160799c" name="Changes" comment="" />
+    <list default="true" id="8859d96e-ae82-4734-84d1-022e1160799c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.github/workflows/ci-cd-dev.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.github/workflows/ci-cd-prod.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/feedback-service/src/test/java/mk/ukim/finki/feedbackservice/FeedbackControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/feedback-service/src/test/java/mk/ukim/finki/feedbackservice/FeedbackServiceImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/mailing-service/src/test/java/mk/ukim/finki/mailingservice/MailingControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/mailing-service/src/test/java/mk/ukim/finki/mailingservice/MailingServiceImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/main-app/src/test/java/mk/ukim/finki/trip2mk/AuthControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/main-app/src/test/java/mk/ukim/finki/trip2mk/GradoviControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/main-app/src/test/java/mk/ukim/finki/trip2mk/GradoviServiceImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/main-app/src/test/java/mk/ukim/finki/trip2mk/UserServiceImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/AuthContext.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webhook-server/deploy-dev.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webhook-server/deploy-prod.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/api-gateway-build-push.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/feedback-service-build-push..yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/frontend-build-push.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/mailing-service-build-push.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/main-app-build-push.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/api-gateway/src/test/java/mk/ukim/finki/apigateway/ApiGatewayApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api-gateway/src/test/java/mk/ukim/finki/apigateway/ApiGatewayApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/feedback-service/src/test/java/mk/ukim/finki/feedbackservice/FeedbackServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/feedback-service/src/test/java/mk/ukim/finki/feedbackservice/FeedbackServiceApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/mailing-service/src/test/java/mk/ukim/finki/mailingservice/MailingServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/mailing-service/src/test/java/mk/ukim/finki/mailingservice/MailingServiceApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/main-app/src/test/java/mk/ukim/finki/trip2mk/Trip2MkApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/main-app/src/test/java/mk/ukim/finki/trip2mk/Trip2MkApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webhook-server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/webhook-server/server.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,9 +40,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "darsov2"
+  }
 }]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "git@github.com:darsov2/kiii_final.git",
+    "accountId": "a6374f2d-a514-4e00-89a6-b9e615d03618"
+  }
+}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2iQ8dujEjyB7c2OjWtN9gEozflI" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -22,13 +64,29 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/darso/Desktop/kiii_proekt/kiii_final/backend",
+    "git-widget-placeholder": "develop",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/david.arsov/workspace/kiii_final",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "/Users/david.arsov/Library/Application Support/JetBrains/IntelliJIdea2025.2/plugins/javascript-plugin/jsLanguageServicesImpl/external",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.26830.84" />
+        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-IU-252.26830.84" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -38,6 +96,7 @@
       <option name="presentableId" value="Default" />
       <updated>1719411530815</updated>
       <workItem from="1719411531867" duration="34000" />
+      <workItem from="1773267195286" duration="1533000" />
     </task>
     <servers />
   </component>

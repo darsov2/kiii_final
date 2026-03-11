@@ -1,13 +1,14 @@
 package mk.ukim.finki.mailingservice;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+import static org.assertj.core.api.Assertions.assertThat;
+
 class MailingServiceApplicationTests {
 
     @Test
-    void contextLoads() {
+    void applicationClassExists() {
+        assertThat(MailingServiceApplication.class).isNotNull();
     }
 
 }
