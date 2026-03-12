@@ -121,6 +121,7 @@ jobs:
             ghcr.io/${{ github.repository_owner }}/trip2mk-api-gateway:${{ github.sha }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+          platforms: linux/amd64,linux/arm64
 
   build-push-feedback:
     name: Build & Push feedback-service
@@ -158,6 +159,7 @@ jobs:
             ghcr.io/${{ github.repository_owner }}/trip2mk-feedback:${{ github.sha }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+          platforms: linux/amd64,linux/arm64
 
   build-push-mailing:
     name: Build & Push mailing-service
@@ -181,6 +183,7 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+          platforms: linux/amd64,linux/arm64
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -195,6 +198,7 @@ jobs:
             ghcr.io/${{ github.repository_owner }}/trip2mk-mailing:${{ github.sha }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+          platforms: linux/amd64,linux/arm64
 
   build-push-main-app:
     name: Build & Push main-app
@@ -232,6 +236,7 @@ jobs:
             ghcr.io/${{ github.repository_owner }}/trip2mk-main-app:${{ github.sha }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+          platforms: linux/amd64,linux/arm64
 
   build-push-frontend:
     name: Build & Push frontend
@@ -255,6 +260,7 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+          platforms: linux/amd64,linux/arm64
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
