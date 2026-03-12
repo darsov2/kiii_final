@@ -119,6 +119,7 @@ jobs:
           tags: ghcr.io/${{ github.repository_owner }}/trip2mk-api-gateway:develop
           cache-from: type=gha
           cache-to: type=gha,mode=max
+          platforms: linux/amd64,linux/arm64
 
   build-push-feedback:
     name: Build & Push feedback-service
@@ -154,6 +155,7 @@ jobs:
           tags: ghcr.io/${{ github.repository_owner }}/trip2mk-feedback:develop
           cache-from: type=gha
           cache-to: type=gha,mode=max
+          platforms: linux/amd64,linux/arm64
 
   build-push-mailing:
     name: Build & Push mailing-service
@@ -189,6 +191,7 @@ jobs:
           tags: ghcr.io/${{ github.repository_owner }}/trip2mk-mailing:develop
           cache-from: type=gha
           cache-to: type=gha,mode=max
+          platforms: linux/amd64,linux/arm64
 
   build-push-main-app:
     name: Build & Push main-app
@@ -224,6 +227,7 @@ jobs:
           tags: ghcr.io/${{ github.repository_owner }}/trip2mk-main-app:develop
           cache-from: type=gha
           cache-to: type=gha,mode=max
+          platforms: linux/amd64,linux/arm64
 
   build-push-frontend:
     name: Build & Push frontend
@@ -259,6 +263,7 @@ jobs:
           tags: ghcr.io/${{ github.repository_owner }}/trip2mk-frontend:develop
           cache-from: type=gha
           cache-to: type=gha,mode=max
+          platforms: linux/amd64,linux/arm64
 
   # ── DEPLOY JOB (runs on local self-hosted runner) ────────────────────────────
 
