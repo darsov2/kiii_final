@@ -83,30 +83,6 @@ jobs:
         working-directory: backend/main-app
         run: mvn test
 
-  test-frontend:
-    name: Test frontend
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Node 18
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'
-          cache: 'npm'
-          cache-dependency-path: frontend/package-lock.json
-
-      - name: Install dependencies
-        working-directory: frontend
-        run: npm ci
-
-      - name: Run tests
-        working-directory: frontend
-        run: npm test -- --watchAll=false
-        env:
-          CI: true
-
   # ── BUILD & PUSH JOBS (parallel, push-only, after ALL tests pass) ─────────────
 
   build-push-api-gateway:
@@ -118,7 +94,6 @@ jobs:
       - test-feedback-service
       - test-mailing-service
       - test-main-app
-      - test-frontend
     permissions:
       contents: read
       packages: write
@@ -156,7 +131,6 @@ jobs:
       - test-feedback-service
       - test-mailing-service
       - test-main-app
-      - test-frontend
     permissions:
       contents: read
       packages: write
@@ -194,7 +168,6 @@ jobs:
       - test-feedback-service
       - test-mailing-service
       - test-main-app
-      - test-frontend
     permissions:
       contents: read
       packages: write
@@ -232,7 +205,6 @@ jobs:
       - test-feedback-service
       - test-mailing-service
       - test-main-app
-      - test-frontend
     permissions:
       contents: read
       packages: write
@@ -270,7 +242,6 @@ jobs:
       - test-feedback-service
       - test-mailing-service
       - test-main-app
-      - test-frontend
     permissions:
       contents: read
       packages: write

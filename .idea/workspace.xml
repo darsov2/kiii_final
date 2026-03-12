@@ -4,33 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8859d96e-ae82-4734-84d1-022e1160799c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.github/workflows/ci-cd-dev.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.github/workflows/ci-cd-prod.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/feedback-service/src/test/java/mk/ukim/finki/feedbackservice/FeedbackControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/feedback-service/src/test/java/mk/ukim/finki/feedbackservice/FeedbackServiceImplTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/mailing-service/src/test/java/mk/ukim/finki/mailingservice/MailingControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/mailing-service/src/test/java/mk/ukim/finki/mailingservice/MailingServiceImplTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/main-app/src/test/java/mk/ukim/finki/trip2mk/AuthControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/main-app/src/test/java/mk/ukim/finki/trip2mk/GradoviControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/main-app/src/test/java/mk/ukim/finki/trip2mk/GradoviServiceImplTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/main-app/src/test/java/mk/ukim/finki/trip2mk/UserServiceImplTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/AuthContext.test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webhook-server/deploy-dev.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webhook-server/deploy-prod.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/api-gateway-build-push.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/feedback-service-build-push..yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/frontend-build-push.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/mailing-service-build-push.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/main-app-build-push.yaml" beforeDir="false" />
+    <list default="true" id="8859d96e-ae82-4734-84d1-022e1160799c" name="Changes" comment="devops hw5 preparation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/api-gateway/src/test/java/mk/ukim/finki/apigateway/ApiGatewayApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api-gateway/src/test/java/mk/ukim/finki/apigateway/ApiGatewayApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/feedback-service/src/test/java/mk/ukim/finki/feedbackservice/FeedbackServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/feedback-service/src/test/java/mk/ukim/finki/feedbackservice/FeedbackServiceApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/mailing-service/src/test/java/mk/ukim/finki/mailingservice/MailingServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/mailing-service/src/test/java/mk/ukim/finki/mailingservice/MailingServiceApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/main-app/src/test/java/mk/ukim/finki/trip2mk/Trip2MkApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/main-app/src/test/java/mk/ukim/finki/trip2mk/Trip2MkApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/feedback-service/src/test/java/mk/ukim/finki/feedbackservice/FeedbackControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/feedback-service/src/test/java/mk/ukim/finki/feedbackservice/FeedbackServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/feedback-service/src/test/java/mk/ukim/finki/feedbackservice/FeedbackServiceImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/mailing-service/src/test/java/mk/ukim/finki/mailingservice/MailingControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/mailing-service/src/test/java/mk/ukim/finki/mailingservice/MailingServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/mailing-service/src/test/java/mk/ukim/finki/mailingservice/MailingServiceImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/main-app/src/test/java/mk/ukim/finki/trip2mk/AuthControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/main-app/src/test/java/mk/ukim/finki/trip2mk/GradoviControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/main-app/src/test/java/mk/ukim/finki/trip2mk/GradoviServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/main-app/src/test/java/mk/ukim/finki/trip2mk/GradoviServiceImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/main-app/src/test/java/mk/ukim/finki/trip2mk/UserServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/main-app/src/test/java/mk/ukim/finki/trip2mk/UserServiceImplTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/App.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webhook-server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/webhook-server/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/AuthContext.test.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,11 +81,24 @@
       <option name="presentableId" value="Default" />
       <updated>1719411530815</updated>
       <workItem from="1719411531867" duration="34000" />
-      <workItem from="1773267195286" duration="1533000" />
+      <workItem from="1773267195286" duration="2913000" />
     </task>
+    <task id="LOCAL-00001" summary="devops hw5 preparation">
+      <option name="closed" value="true" />
+      <created>1773269059766</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1773269059766</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="devops hw5 preparation" />
+    <option name="LAST_COMMIT_MESSAGE" value="devops hw5 preparation" />
   </component>
 </project>

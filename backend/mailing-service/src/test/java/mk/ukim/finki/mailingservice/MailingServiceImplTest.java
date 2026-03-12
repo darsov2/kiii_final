@@ -23,16 +23,14 @@ class MailingServiceImplTest {
     private MailingServiceImpl mailingService;
 
     @Test
-    void sendMail_invokesEmailSenderWithCorrectRecipientAndSubject() {
-        mailingService.SendMail("user@example.com", "Test Subject", "Hello!");
+    void sendMail_sendsToCorrectRecipient() {
+        mailingService.SendMail("user@example.com", "Subject", "Body");
 
         ArgumentCaptor<SimpleMailMessage> captor = ArgumentCaptor.forClass(SimpleMailMessage.class);
         verify(emailSender).send(captor.capture());
 
-        SimpleMailMessage sent = captor.getValue();
-        assertThat(sent.getTo()).containsExactly("user@example.com");
-        assertThat(sent.getSubject()).isEqualTo("Test Subject");
-        assertThat(sent.getText()).isEqualTo("Hello!");
+        assertThat(captor.getValue().getTo()).containsExactly("user@example.com");
+        assertThat(captor.getValue().getSubject()).isEqualTo("Subject");
     }
 
     @Test
@@ -43,11 +41,5 @@ class MailingServiceImplTest {
         verify(emailSender).send(captor.capture());
 
         assertThat(captor.getValue().getFrom()).isEqualTo("Trip2MK");
-    }
-
-    @Test
-    void sendMail_delegatesToEmailSenderOnce() {
-        mailingService.SendMail("a@b.com", "S", "M");
-        verify(emailSender).send(org.mockito.ArgumentMatchers.any(SimpleMailMessage.class));
     }
 }

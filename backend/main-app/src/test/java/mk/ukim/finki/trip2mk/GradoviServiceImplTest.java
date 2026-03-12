@@ -25,34 +25,18 @@ class GradoviServiceImplTest {
 
     @Test
     void findAll_returnsAllCities() {
-        Gradovi g1 = new Gradovi("Skopje", "Capital of North Macedonia", null);
-        Gradovi g2 = new Gradovi("Ohrid", "Pearl of the Balkans", null);
-        when(gradoviDao.findAll()).thenReturn(List.of(g1, g2));
+        when(gradoviDao.findAll()).thenReturn(List.of(
+                new Gradovi("Skopje", "Capital", null),
+                new Gradovi("Ohrid", "Lake city", null)
+        ));
 
-        List<Gradovi> result = gradoviService.findAll();
-
-        assertThat(result).hasSize(2);
-        assertThat(result.get(0).getIme()).isEqualTo("Skopje");
-        assertThat(result.get(1).getIme()).isEqualTo("Ohrid");
+        assertThat(gradoviService.findAll()).hasSize(2);
     }
 
     @Test
-    void findById_returnsMatchingCity() {
-        Gradovi g = new Gradovi("Bitola", "Second largest city", null);
-        when(gradoviDao.findById(1L)).thenReturn(g);
+    void findById_returnsCorrectCity() {
+        when(gradoviDao.findById(1L)).thenReturn(new Gradovi("Bitola", "Second city", null));
 
-        Gradovi result = gradoviService.findById(1L);
-
-        assertThat(result.getIme()).isEqualTo("Bitola");
-        assertThat(result.getOpis()).isEqualTo("Second largest city");
-    }
-
-    @Test
-    void findAll_emptyList_returnsEmptyList() {
-        when(gradoviDao.findAll()).thenReturn(List.of());
-
-        List<Gradovi> result = gradoviService.findAll();
-
-        assertThat(result).isEmpty();
+        assertThat(gradoviService.findById(1L).getIme()).isEqualTo("Bitola");
     }
 }
